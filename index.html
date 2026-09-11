@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#0d0f14" />
+  <title>Super Clash Arena</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <canvas id="game" width="1280" height="720" aria-label="Super Clash Arena"></canvas>
+
+    <div id="screen-title" class="screen active">
+      <div class="logoWrap">
+        <div class="eyebrow">ORIGINAL PLATFORM FIGHTER</div>
+        <h1>SUPER <span>CLASH</span> ARENA</h1>
+        <p class="subtitle">A fast, arcade-style browser brawler inspired by classic platform fighters.</p>
+        <button id="playBtn" class="bigBtn">PLAY</button>
+        <button id="controlsBtn" class="subBtn">CONTROLS</button>
+      </div>
+    </div>
+
+    <div id="screen-select" class="screen">
+      <div class="panel selectPanel">
+        <div class="panelTitle">CHOOSE YOUR FIGHTER</div>
+        <div id="fighterGrid" class="fighterGrid"></div>
+        <div class="selectFooter">
+          <div id="p1Readout">P1: NOVA</div>
+          <button id="toStageBtn" class="bigBtn small">STAGE SELECT</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="screen-stage" class="screen">
+      <div class="panel stagePanel">
+        <div class="panelTitle">SELECT STAGE</div>
+        <div id="stageGrid" class="stageGrid"></div>
+        <div class="selectFooter">
+          <button id="backSelectBtn" class="subBtn">BACK</button>
+          <button id="startMatchBtn" class="bigBtn small">START MATCH</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="screen-controls" class="screen">
+      <div class="panel controlsPanel">
+        <div class="panelTitle">CONTROLS</div>
+        <div class="controlsCols">
+          <div>
+            <h3>Keyboard</h3>
+            <p><b>Move:</b> A / D</p>
+            <p><b>Jump:</b> W or Space</p>
+            <p><b>Crouch / Drop:</b> S</p>
+            <p><b>Attack:</b> J</p>
+            <p><b>Special:</b> K</p>
+            <p><b>Shield / Dodge:</b> L</p>
+            <p><b>Grab:</b> I</p>
+            <p><b>Pause:</b> Esc</p>
+          </div>
+          <div>
+            <h3>Advanced</h3>
+            <p>Hold a direction with Attack for tilts.</p>
+            <p>Attack in the air for directional aerials.</p>
+            <p>Special + direction changes the special move.</p>
+            <p>Tap Shield + direction to roll.</p>
+            <p>Shield in the air to air-dodge.</p>
+            <p>Press down in the air to fast-fall.</p>
+          </div>
+        </div>
+        <button id="closeControlsBtn" class="bigBtn small">BACK</button>
+      </div>
+    </div>
+
+    <div id="hud" class="hud hidden">
+      <div id="p1Hud" class="hudBox left">
+        <div id="p1Name" class="hudName">NOVA</div>
+        <div><span id="p1Pct" class="pct">0</span><span class="pctSign">%</span></div>
+        <div id="p1Stocks" class="stocks"></div>
+      </div>
+      <div id="matchTimer" class="timer">5:00</div>
+      <div id="p2Hud" class="hudBox right">
+        <div id="p2Name" class="hudName">CPU</div>
+        <div><span id="p2Pct" class="pct">0</span><span class="pctSign">%</span></div>
+        <div id="p2Stocks" class="stocks"></div>
+      </div>
+    </div>
+
+    <div id="matchBanner" class="matchBanner hidden"></div>
+    <button id="pauseBtn" class="pauseBtn hidden">Ⅱ</button>
+
+    <div id="pauseMenu" class="pauseMenu hidden">
+      <div class="panel miniPanel">
+        <div class="panelTitle">PAUSED</div>
+        <button id="resumeBtn" class="bigBtn small">RESUME</button>
+        <button id="quitBtn" class="subBtn">QUIT TO TITLE</button>
+      </div>
+    </div>
+
+    <div id="mobileControls" class="mobileControls hidden">
+      <div class="dpad">
+        <button data-key="left" class="touchBtn dleft">◀</button>
+        <button data-key="right" class="touchBtn dright">▶</button>
+        <button data-key="up" class="touchBtn dup">▲</button>
+        <button data-key="down" class="touchBtn ddown">▼</button>
+      </div>
+      <div class="actions">
+        <button data-key="grab" class="touchBtn action grab">G</button>
+        <button data-key="shield" class="touchBtn action shield">R</button>
+        <button data-key="special" class="touchBtn action special">B</button>
+        <button data-key="attack" class="touchBtn action attack">A</button>
+      </div>
+    </div>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
