@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#070a14" />
+  <title>NEON CLASH</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="app">
+    <canvas id="gameCanvas" aria-label="Neon Clash fighting game"></canvas>
+
+    <section id="startScreen" class="screen active">
+      <div class="panel hero">
+        <div class="eyebrow">ORIGINAL HTML FIGHTER</div>
+        <h1>NEON CLASH</h1>
+        <p class="tagline">Fast footsies, high/low pressure, blocking, parries, and character-specific specials.</p>
+
+        <div class="fighterCards">
+          <article class="fighterCard cyan">
+            <div class="portrait kadePortrait"></div>
+            <div>
+              <h2>KADE</h2>
+              <p>Balanced striker. Special: <strong>Volt Palm</strong>, a mid-speed energy projectile.</p>
+            </div>
+          </article>
+          <article class="fighterCard violet">
+            <div class="portrait mireiPortrait"></div>
+            <div>
+              <h2>MIREI</h2>
+              <p>Rushdown specialist. Special: <strong>Phase Step</strong>, a low advancing strike.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="actions">
+          <button id="startBtn" class="primary">START FIGHT</button>
+          <button id="controlsBtn" class="secondary">CONTROLS</button>
+        </div>
+        <p class="smallNote">On phones, landscape orientation is recommended.</p>
+      </div>
+    </section>
+
+    <section id="controlsScreen" class="screen">
+      <div class="panel controlsPanel">
+        <div class="eyebrow">HOW TO PLAY</div>
+        <h2>CONTROLS</h2>
+        <div class="controlGrid">
+          <div class="controlBlock">
+            <h3>Movement</h3>
+            <p><kbd>A</kbd>/<kbd>D</kbd> move</p>
+            <p><kbd>W</kbd> jump</p>
+            <p><kbd>S</kbd> crouch</p>
+            <p><strong>Hold away</strong> from the opponent to block.</p>
+            <p><strong>Hold away + crouch</strong> to block lows.</p>
+          </div>
+          <div class="controlBlock">
+            <h3>Attacks</h3>
+            <p><kbd>J</kbd> Light</p>
+            <p><kbd>K</kbd> Medium</p>
+            <p><kbd>L</kbd> Heavy</p>
+            <p><kbd>I</kbd> Special</p>
+            <p><kbd>U</kbd> Parry</p>
+          </div>
+        </div>
+        <div class="tipBox">
+          <strong>Parry timing:</strong> tap Parry just before an incoming attack lands. A successful parry briefly stuns the attacker and gives you meter.
+        </div>
+        <div class="actions">
+          <button id="backBtn" class="secondary">BACK</button>
+          <button id="startFromControlsBtn" class="primary">START FIGHT</button>
+        </div>
+      </div>
+    </section>
+
+    <div id="hud" class="hud hidden">
+      <div class="playerHud leftHud">
+        <div class="hudName">KADE <span>VOLT PALM</span></div>
+        <div class="healthShell"><div id="p1Health" class="healthFill"></div></div>
+        <div class="meterShell"><div id="p1Meter" class="meterFill"></div></div>
+        <div id="p1Rounds" class="roundPips"><i></i><i></i></div>
+      </div>
+
+      <div id="timer" class="timer">99</div>
+
+      <div class="playerHud rightHud">
+        <div class="hudName">MIREI <span>PHASE STEP</span></div>
+        <div class="healthShell"><div id="p2Health" class="healthFill"></div></div>
+        <div class="meterShell"><div id="p2Meter" class="meterFill"></div></div>
+        <div id="p2Rounds" class="roundPips"><i></i><i></i></div>
+      </div>
+    </div>
+
+    <div id="roundMessage" class="roundMessage hidden">ROUND 1</div>
+
+    <div id="mobileControls" class="mobileControls hidden" aria-label="mobile game controls">
+      <div class="dpad">
+        <button class="touchButton up" data-input="up">▲</button>
+        <button class="touchButton left" data-input="left">◀</button>
+        <button class="touchButton right" data-input="right">▶</button>
+        <button class="touchButton down" data-input="down">▼</button>
+      </div>
+
+      <div class="attackPad">
+        <button class="attackButton parry" data-input="parry"><b>P</b><small>PARRY</small></button>
+        <button class="attackButton light" data-input="light"><b>L</b><small>LIGHT</small></button>
+        <button class="attackButton medium" data-input="medium"><b>M</b><small>MED</small></button>
+        <button class="attackButton heavy" data-input="heavy"><b>H</b><small>HEAVY</small></button>
+        <button class="attackButton special" data-input="special"><b>S</b><small>SPECIAL</small></button>
+      </div>
+    </div>
+
+    <div id="desktopHelp" class="desktopHelp hidden">
+      A/D move · W jump · S crouch · J light · K medium · L heavy · I special · U parry
+    </div>
+
+    <button id="menuBtn" class="menuBtn hidden" aria-label="Return to title">☰</button>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
